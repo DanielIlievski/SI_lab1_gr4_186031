@@ -1,11 +1,19 @@
-class Point {
-	String id
+package Point;
+
+import org.w3c.dom.NodeList;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class Point {
+	String id;
 	double x,y;
 
 	//TODO add new variable
 	String color;
 
 	//TODO constructor
+	public Point(){}
 	public Point(String id, double x, double y, String color) {
 		this.id = id;
 		this.x = x;
@@ -66,6 +74,21 @@ class Point {
 		System.out.println("(" + getX() + "," + getY() + ")");
 	}
 
-
-
+	public static void main(String[] args) {
+		Canvas canvas = new Canvas();
+		Point newPoint1 = new Point("6", 7, 2, "blue");
+		Point newPoint2 = new Point("7", 4, 8, "red")
+		canvas.dodadiTocka(newPoint1);
+		canvas.dodadiTocka(newPoint2);
+	}
 }
+
+class Canvas extends Point{
+	List<Point> list = new LinkedList();
+
+	public void dodadiTocka(Point point)
+	{
+		list.add(point);
+	}
+}
+
